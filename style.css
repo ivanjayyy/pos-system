@@ -20,3 +20,11 @@ body {
     height: 40px;
     width: fit-content;
 }
+
+#main-app {
+    display: none;
+}
+
+.home-card {
+    margin: 0 5vw;
+}

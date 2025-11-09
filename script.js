@@ -10,3 +10,10 @@ $("#login-form").on("submit", e => {
 
     } else {$("#login-error").fadeIn().delay(1500).fadeOut();}
 });
+
+// logout
+$("#logout-btn").on("click", () => {
+    $("#main-app").hide();
+    $("#navbar-container").hide();
+    $("#login-page").fadeIn();
+});
