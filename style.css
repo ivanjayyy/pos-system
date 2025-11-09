@@ -10,3 +10,13 @@ body {
     max-width: 400px;
     margin-top: 20vh;
 }
+
+.navbar-container {
+    display: none;
+    padding: 30px;
+}
+
+.logo {
+    height: 40px;
+    width: fit-content;
+}

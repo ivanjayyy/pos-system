@@ -6,6 +6,7 @@ $("#login-form").on("submit", e => {
     if ($("#username").val() === USER.username && $("#password").val() === USER.password) {
         $("#login-page").hide();
         $("#main-app").show();
+        $("#navbar-container").show();
 
     } else {$("#login-error").fadeIn().delay(1500).fadeOut();}
 });
