@@ -28,3 +28,11 @@ body {
 .home-card {
     margin: 0 5vw;
 }
+
+#customer-page {
+    display: none;
+}
+
+#item-page {
+    display: none;
+}

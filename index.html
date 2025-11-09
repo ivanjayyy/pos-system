@@ -40,7 +40,7 @@
 <header class="container-fluid navbar-container" id="navbar-container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#home">
+            <a class="navbar-brand home-btn pointer">
                 <img class="logo" src="assets/image/logo.png">
             </a>
 
@@ -50,9 +50,9 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav" style="margin-left: auto; margin-right: 10px;">
-                    <a class="nav-link" href="#customer-container">Customer</a>
-                    <a class="nav-link" href="#item-container">Item</a>
-                    <a class="nav-link" href="#order-container">Order</a>
+                    <a class="nav-link customer-btn pointer">Customer</a>
+                    <a class="nav-link item-btn pointer">Item</a>
+                    <a class="nav-link order-btn pointer">Order</a>
                 </div>
 
                 <button id="logout-btn" type="button" class="btn btn-outline-danger">Logout</button>
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button id="customer-btn" type="button" class="btn btn-primary">
+                        <button id="customer-btn" type="button" class="btn btn-primary customer-btn">
                             <span>check customers</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button id="item-btn" type="button" class="btn btn-primary">
+                        <button id="item-btn" type="button" class="btn btn-primary item-btn">
                             <span>check items</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button id="order-btn" type="button" class="btn btn-primary">
+                        <button id="order-btn" type="button" class="btn btn-primary order-btn">
                             <span>check orders</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -125,7 +125,64 @@
     </section>
 
 <!--customers-->
-    <section id="customer-page" class="container-fluid p-5"></section>
+    <section id="customer-page" class="container-fluid p-5">
+        <div class="container mt-4" id="customers-section">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>Customer Management</h3>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#customerModal" id="addCustomerBtn">+ Add Customer</button>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead class="table-light"><tr><th>ID</th><th>Name</th><th>Contact</th><th>Address</th><th>Actions</th></tr></thead>
+                <tbody id="customerTableBody"></tbody>
+            </table>
+        </div>
+
+        <!--customer-modal-->
+        <div class="modal fade" id="customerModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+            <form id="customerForm">
+                <div class="modal-header"><h5 class="modal-title">Add Customer</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <input type="hidden" id="customerId">
+                    <div class="mb-3"><label class="form-label">Name</label><input id="customerName" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Contact</label><input id="customerContact" class="form-control" pattern="^[0-9]{10}$" required></div>
+                    <div class="mb-3"><label class="form-label">Address</label><input id="customerAddress" class="form-control" required></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
+            </form>
+        </div></div></div>
+    </section>
+
+<!--items-->
+    <section id="item-page" class="container-fluid p-5">
+        <div class="container mt-4" id="items-section">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>Item Management</h3>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#itemModal" id="addItemBtn">+ Add Item</button>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead class="table-light"><tr><th>Code</th><th>Name</th><th>Unit Price</th><th>Qty on Hand</th><th>Actions</th></tr></thead>
+                <tbody id="itemTableBody"></tbody>
+            </table>
+        </div>
+
+        <!--item-modal-->
+        <div class="modal fade" id="itemModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+            <form id="itemForm">
+                <div class="modal-header"><h5 class="modal-title">Add Item</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <input type="hidden" id="itemCodeHidden">
+                    <div class="mb-3"><label class="form-label">Code</label><input id="itemCode" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Name</label><input id="itemName" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Price</label><input id="itemPrice" type="number" min="0" step="0.01" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Qty</label><input id="itemQty" type="number" min="0" class="form-control" required></div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
+            </form>
+        </div></div></div>
+    </section>
+
 </main>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

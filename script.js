@@ -17,3 +17,36 @@ $("#logout-btn").on("click", () => {
     $("#navbar-container").hide();
     $("#login-page").fadeIn();
 });
+
+// home
+$(".home-btn").on("click", () => {
+    $("#item-page").hide();
+    $("#order-page").hide();
+    $("#customer-page").hide();
+    $("#home").fadeIn();
+});
+
+// customer
+$(".customer-btn").on("click", () => {
+    $("#home").hide();
+    $("#item-page").hide();
+    $("#order-page").hide();
+    $("#customer-page").fadeIn();
+});
+
+// item
+$(".item-btn").on("click", () => {
+    $("#home").hide();
+    $("#order-page").hide();
+    $("#customer-page").hide();
+    $("#item-page").fadeIn();
+});
+
+// order
+$(".order-btn").on("click", () => {
+    $("#item-page").hide();
+    $("#home").hide();
+    $("#customer-page").hide();
+    $("#order-page").fadeIn();
+});
+
