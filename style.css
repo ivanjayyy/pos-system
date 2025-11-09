@@ -37,6 +37,10 @@ body {
     display: none;
 }
 
+#order-page {
+    display: none;
+}
+
 .table input {
     width:80px;
 }
