@@ -2,4 +2,4 @@ let customer_db = [];
 let item_db = [];
 let order_db = [];
 
-export default customer_db;
+export {customer_db, item_db};
