@@ -36,3 +36,7 @@ body {
 #item-page {
     display: none;
 }
+
+.table input {
+    width:80px;
+}

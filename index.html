@@ -183,6 +183,44 @@
         </div></div></div>
     </section>
 
+<!--    order-->
+    <section id="order-page" class="container-fluid p-5">
+        <div class="container mt-4" id="orders-section">
+            <h3>Place Order</h3>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Select Customer</label>
+                    <select id="orderCustomer" class="form-select"></select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Order ID</label>
+                    <input type="text" id="orderId" class="form-control" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Order Date</label>
+                    <input type="text" id="orderDate" class="form-control" readonly>
+                </div>
+            </div>
+
+            <table class="table table-bordered align-middle">
+                <thead class="table-light">
+                <tr><th>Item</th><th>Price</th><th>Qty</th><th>Subtotal</th><th>Action</th></tr>
+                </thead>
+                <tbody id="orderItemsBody"></tbody>
+            </table>
+            <button id="addOrderItemBtn" class="btn btn-sm btn-success mb-3">+ Add Item</button>
+
+            <h4 class="text-end">Total: $<span id="grandTotal">0.00</span></h4>
+            <button id="placeOrderBtn" class="btn btn-primary float-end">Place Order</button>
+
+            <hr class="mt-5">
+            <h3>Order History</h3>
+            <table class="table table-bordered">
+                <thead class="table-light"><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th></tr></thead>
+                <tbody id="orderHistoryBody"></tbody>
+            </table>
+        </div>
+    </section>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
