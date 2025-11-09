@@ -1,0 +1,12 @@
+body {
+    background-image: url("assets/image/body-bg.avif");
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.login-container {
+    max-width: 400px;
+    margin-top: 20vh;
+}
