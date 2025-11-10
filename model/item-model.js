@@ -1,4 +1,4 @@
-import {customer_db, item_db} from "../db/db.js";
+import {item_db} from "../db/db.js";
 import ItemDto from "../dto/item-dto.js";
 
 // ================ Add Item ===================

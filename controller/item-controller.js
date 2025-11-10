@@ -100,3 +100,5 @@ $(document).on("click",".del-item",function(){
         }
     });
 });
+
+export default load_item_tbl;

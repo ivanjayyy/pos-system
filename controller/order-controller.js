@@ -1,7 +1,7 @@
-import get_orders from "../model/order-model.js";
-import {customer_db, item_db, order_db} from "../db/db.js";
+import {get_orders, add_order} from "../model/order-model.js";
 import {get_items} from "../model/item-model.js";
 import {get_customers} from "../model/customer-model.js";
+import load_item_tbl from "./item-controller.js";
 
 // let tbl_row;
 // let add_cust;
@@ -55,25 +55,27 @@ $("#addOrderItemBtn").on("click", () => add_order_row());
 function add_order_row() {
     let item_list = get_items();
 
-    const sel=`<select class = 'form-select order-item'>
-    <option value=''>Select</option>
-    ${item_list.map(i => `<option value = '${i.code}'>${i.name}</option>`).join("")}
+    const sel=`<select class="form-select order-item"><option value=''>Select</option>
+    ${item_list.map(i => `<option value="${i.item_id}">${i.itemName}</option>`).join("")}
     </select>`;
 
-    $("#orderItemsBody").append(`<tr>
-    <td>${sel}</td>
-    <td class='price'>0.00</td>
-    <td><input type='number' class='form-control qty' min='1' value='1'></td>
-    <td class='subtotal'>0.00</td>
-    <td><button class='btn btn-sm btn-danger del-row'>X</button></td>
-    </tr>`);
+    $("#orderItemsBody").append(
+        `<tr><td>${sel}</td>
+        <td class='price'>0.00</td>
+        <td><input type='number' class='form-control qty' min='1' value='1'></td>
+        <td class='subtotal'>0.00</td>
+        <td><button class='btn btn-sm btn-danger del-row'>X</button></td></tr>`
+    );
 }
 
 
 $(document).on("change",".order-item",function(){
+    let item_list = get_items();
+
     const row = $(this).closest("tr");
     const code = $(this).val();
-    const item = item_db.find(i => i.item_code === code);
+    const item = item_list.find(i => i.item_id === code);
+
     if(item) {
         row.find(".price").text(item.price.toFixed(2));
         updateSubtotal(row);
@@ -92,8 +94,12 @@ $(document).on("click",".del-row",function(){
 
 
 function updateSubtotal(row){
-    const code = row.find(".order-item").val();const item = item_db.find(i => i.item_code === code);
+    let item_list = get_items();
+
+    const code = row.find(".order-item").val();
+    const item = item_list.find(i => i.item_id === code);
     const qty = parseInt(row.find(".qty").val());
+
     if(item) {
         const sub = item.price * qty;
         row.find(".subtotal").text(sub.toFixed(2));
@@ -104,68 +110,74 @@ function updateSubtotal(row){
 
 function updateGrandTotal(){
     let total = 0;
+
     $("#orderItemsBody .subtotal").each(function(){
-        total += parseFloat($(this).text())||0;
+        total += parseFloat($(this).text()) || 0;
     });
 
     $("#grandTotal").text(total.toFixed(2));
 }
 
 
-// place order
-$("#placeOrderBtn").on("click",()=>{
-    const custId=$("#orderCustomer").val();if(!custId)return alert("Select a customer");
-    const rows=$("#orderItemsBody tr");if(rows.length===0)return alert("Add at least one item");
-    const orderItems=[];let valid=true;
+// ==================== Place Order =======================
+$("#placeOrderBtn").on("click",()=> {
+    let item_list = get_items();
+    let cust_list = get_customers();
+
+    const custId = $("#orderCustomer").val();
+    if(!custId) return Swal.fire("Select a customer");
+
+    const rows = $("#orderItemsBody tr");
+    if(rows.length === 0) return Swal.fire("Add at least one item");
+
+    const orderItems=[];
+    let valid = true;
+
     rows.each(function(){
-        const code=$(this).find(".order-item").val();const qty=parseInt($(this).find(".qty").val());
-        const item=item_db.find(i=>i.code===code);
-        if(!item||qty>item.qty){alert("Invalid or insufficient stock");valid=false;return false;}
-        item.qty-=qty;orderItems.push({code,itemName:item.name,qty,price:item.price});
+        const code = $(this).find(".order-item").val();
+        const qty = parseInt($(this).find(".qty").val());
+        const item = item_list.find(i => i.item_id === code);
+
+        if(!item || qty > item.qty){
+            Swal.fire("Invalid or insufficient stock");
+            valid = false;
+            return false;
+        }
+
+        item.qty -= qty;
+        orderItems.push({
+            code,
+            item_id:item.item_code,
+            itemName:item.itemName,
+            qty,
+            price:item.price
+        });
     });
-    if(!valid)return;
-    const order={id:$("#orderId").val(),date:$("#orderDate").val(),customerId:custId,
-        customerName:customer_db.find(c=>c.id===custId).name,
-        items:orderItems,total:parseFloat($("#grandTotal").text())};
-    order_db.push(order);add_order_row();load_order_history();
-    alert("Order placed successfully!");
+
+    if(!valid) return;
+
+    const order = {
+        id:$("#orderId").val(),
+        date:$("#orderDate").val(),
+        customerId:custId,
+        custName:cust_list.find(c => c.id === custId).name,
+        items:orderItems,
+        total:parseFloat($("#grandTotal").text())
+    };
+
+    add_order(order)
+
+    load_item_tbl();
+    load_order_history();
+
+    Swal.fire({
+        title: "Order placed successfully!",
+        icon: "success",
+        draggable: true
+    });
+
     initOrderForm();
 });
 
-
-
-
-
-
-
-
-
-// ==================== Add Customer =======================
-// $("#addCustomerBtn").on("click",() => {
-//     $("#customerForm")[0].reset();
-//     $("#customerId").val(nextCustomerId++);
-//     $(".modal-title","#customerModal").text("Add Customer");
-//
-//     add_cust = true;
-// });
-//
-// $("#customerForm").on("submit", e => {
-//     e.preventDefault();
-//
-//     let id = $("#customerId").val();
-//     let name = $("#customerName").val().trim();
-//     let contact = $("#customerContact").val().trim();
-//     let address = $("#customerAddress").val().trim();
-//
-//     if (add_cust) {
-//         add_customer(id, name, contact, address);
-//
-//     } else {
-//         update_customer(tbl_row, id, name, contact, address);
-//     }
-//
-//     $("#customerModal").modal("hide");
-//     load_customer_tbl();
-// });
 
 export default initOrderForm;
