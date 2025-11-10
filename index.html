@@ -144,9 +144,9 @@
                     <button class="btn-close" data-bs-dismiss="modal"></button></div>
                 <div class="modal-body">
                     <input type="hidden" id="customerId">
-                    <div class="mb-3"><label class="form-label">Name</label><input id="customerName" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label">Contact</label><input id="customerContact" class="form-control" pattern="^[0-9]{10}$" required></div>
-                    <div class="mb-3"><label class="form-label">Address</label><input id="customerAddress" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Name</label><input type="text" id="customerName" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Contact</label><input type="tel" id="customerContact" class="form-control" pattern="^[0-9]{10}$" required></div>
+                    <div class="mb-3"><label class="form-label">Address</label><input type="text" id="customerAddress" class="form-control" required></div>
                 </div>
                 <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
             </form>
@@ -173,8 +173,8 @@
                     <button class="btn-close" data-bs-dismiss="modal"></button></div>
                 <div class="modal-body">
                     <input type="hidden" id="itemCodeHidden">
-                    <div class="mb-3"><label class="form-label">Code</label><input id="itemCode" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label">Name</label><input id="itemName" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Code</label><input id="itemCode" type="text" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label">Name</label><input id="itemName" type="text" class="form-control" required></div>
                     <div class="mb-3"><label class="form-label">Price</label><input id="itemPrice" type="number" min="0" step="0.01" class="form-control" required></div>
                     <div class="mb-3"><label class="form-label">Qty</label><input id="itemQty" type="number" min="0" class="form-control" required></div>
                 </div>
