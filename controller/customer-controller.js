@@ -19,10 +19,6 @@ const load_customer_tbl = () => {
 
         $("#customerTableBody").append(tbl_row);
     });
-
-    let sel=$("#orderCustomer").empty();
-    sel.append("<option value=''>-- Select Customer --</option>");
-    customer_list.forEach(c => sel.append(`<option value='${c.id}'>${c.name}</option>`));
 }
 
 

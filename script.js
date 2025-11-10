@@ -1,3 +1,5 @@
+import initOrderForm from "./controller/order-controller.js";
+
 // login
 const USER = {username: "ivan", password: "123"};
 
@@ -48,5 +50,6 @@ $(".order-btn").on("click", () => {
     $("#home").hide();
     $("#customer-page").hide();
     $("#order-page").fadeIn();
-});
 
+    initOrderForm();
+});
