@@ -10,6 +10,7 @@ $("#login-form").on("submit", e => {
     e.preventDefault();
     if ($("#username").val() === USER.username && $("#password").val() === USER.password) {
         $("#login-page").hide();
+        $("#topbar").hide();
         $("#main-app").fadeIn();
         $("#navbar-container").fadeIn();
 
@@ -32,6 +33,7 @@ $(".home-btn").on("click", () => {
     $("#item-page").hide();
     $("#order-page").hide();
     $("#customer-page").hide();
+    $("#topbar").hide();
     $("#home").fadeIn();
 
     $("#customer-count").text(get_customers().length);
@@ -44,6 +46,8 @@ $(".customer-btn").on("click", () => {
     $("#home").hide();
     $("#item-page").hide();
     $("#order-page").hide();
+    $("#topbar").fadeIn();
+    $("#activeSectionLabel").text("Customer")
     $("#customer-page").fadeIn();
 });
 
@@ -52,6 +56,8 @@ $(".item-btn").on("click", () => {
     $("#home").hide();
     $("#order-page").hide();
     $("#customer-page").hide();
+    $("#topbar").fadeIn();
+    $("#activeSectionLabel").text("Item")
     $("#item-page").fadeIn();
 });
 
@@ -60,7 +66,35 @@ $(".order-btn").on("click", () => {
     $("#item-page").hide();
     $("#home").hide();
     $("#customer-page").hide();
+    $("#topbar").hide();
     $("#order-page").fadeIn();
 
     initOrderForm();
 });
+
+// search
+$("#globalSearch").on("input", function () {
+    const q = $(this).val().trim().toLowerCase();
+    const section = $("#activeSectionLabel").text().trim().toLowerCase();
+
+    if (!q) {
+        $("#customerTableBody tr").show();
+        $("#itemTableBody tr").show();
+        return;
+    }
+
+    if (section.includes("customer")) {
+        $("#customerTableBody tr").each(function () {
+            $(this).toggle($(this).text().toLowerCase().includes(q));
+        });
+    } else if (section.includes("item")) {
+        $("#itemTableBody tr").each(function () {
+            $(this).toggle($(this).text().toLowerCase().includes(q));
+        });
+    } else {
+        $("#customerTableBody tr, #itemTableBody tr").each(function () {
+            $(this).toggle($(this).text().toLowerCase().includes(q));
+        });
+    }
+});
+

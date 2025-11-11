@@ -20,7 +20,7 @@
 <div id="login-page" class="p-5" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:40;">
     <div class="login-card card-glass" style="width:420px;">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-            <div class="logo" style="width:56px;height:56px;border-radius:12px;font-size:18px">GP</div>
+            <div class="logo" style="width:56px;height:56px;border-radius:12px;font-size:18px">POS</div>
             <div>
                 <div style="font-weight:800;font-size:1.12rem;color:#fff">Web POS System - 2025</div>
                 <div class="small-muted">Login to continue</div>
@@ -82,6 +82,25 @@
 </header>
 
 <main id="main-app" style="margin: 0 1vw">
+
+<!--    search-->
+    <div class="topbar" id="topbar">
+        <div style="display:flex;align-items:center;gap:14px">
+            <div>
+                <div class="pill" id="activeSectionLabel">-</div>
+            </div>
+
+            <div class="searchbar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="rgba(255,255,255,0.65)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <input id="globalSearch" placeholder="search..." />
+            </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+            <div class="small-muted">Balance</div>
+            <div style="font-weight:800;font-size:1.05rem"> Rs <span id="balanceTotal">0.00</span></div>
+        </div>
+    </div>
 
 <!--home-->
     <section id="home" class="container-fluid p-1">
@@ -268,11 +287,11 @@
                     </div>
                     <div class="col-12 col-md-4">
                         <div style="padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(18,24,40,0.6), rgba(10,12,20,0.5))">
-                            <div class="small-muted">Order Summary</div>
+                            <div class="section-title">Order Summary</div>
                             <div style="margin-top:14px;display:flex;justify-content:space-between"><div class="muted">Order ID</div><div id="orderId" class="muted">-</div></div>
                             <div style="margin-top:8px;display:flex;justify-content:space-between"><div class="muted">Date</div><div id="orderDate" class="muted">-</div></div>
                             <hr style="border-top:1px solid rgba(255,255,255,0.04);margin:12px 0">
-                            <div style="display:flex;justify-content:space-between"><div class="small-muted">Grand Total</div><div style="font-weight:800;font-size:1.3rem" id="grandTotal">0.00</div></div>
+                            <div style="display:flex;justify-content:space-between"><div class="section-title">Grand Total</div><div style="font-weight:800;font-size:1.3rem" id="grandTotal">0.00</div></div>
                             <div style="margin-top:12px">
                                 <button id="placeOrderBtn" class="btn btn-primary w-100">Place Order</button>
                             </div>
