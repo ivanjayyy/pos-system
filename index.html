@@ -159,19 +159,25 @@
         </div>
 
         <!--customer-modal-->
-        <div class="modal fade" id="customerModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
-            <form id="customerForm">
-                <div class="modal-header"><h5 class="modal-title">Add Customer</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body">
-                    <input type="hidden" id="customerId">
-                    <div class="mb-3"><label class="form-label" for="customerName">Name</label><input type="text" id="customerName" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label" for="customerContact">Contact</label><input type="tel" id="customerContact" class="form-control" pattern="^[0-9]{10}$" required></div>
-                    <div class="mb-3"><label class="form-label" for="customerAddress">Address</label><input type="text" id="customerAddress" class="form-control" required></div>
+        <div class="modal fade" id="customerModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form id="customerForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Customer</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="customerId">
+                            <div class="mb-3"><label for="customerName" class="form-label small-muted">Name</label><input type="text" id="customerName" class="form-control" required></div>
+                            <div class="mb-3"><label for="customerContact" class="form-label small-muted">Contact (10 digits)</label><input type="tel" id="customerContact" class="form-control" pattern="^[0-9]{10}$" required></div>
+                            <div class="mb-3"><label for="customerAddress" class="form-label small-muted">Address</label><input id="customerAddress" type="text" class="form-control" required></div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
+                    </form>
                 </div>
-                <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
-            </form>
-        </div></div></div>
+            </div>
+        </div>
     </section>
 
 <!--items-->
@@ -198,20 +204,26 @@
         </div>
 
         <!--item-modal-->
-        <div class="modal fade" id="itemModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content">
-            <form id="itemForm">
-                <div class="modal-header"><h5 class="modal-title">Add Item</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body">
-                    <input type="hidden" id="itemCodeHidden">
-                    <div class="mb-3"><label class="form-label">Code</label><input id="itemCode" type="text" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label">Name</label><input id="itemName" type="text" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label">Price</label><input id="itemPrice" type="number" min="0" step="0.01" class="form-control" required></div>
-                    <div class="mb-3"><label class="form-label">Qty</label><input id="itemQty" type="number" min="0" class="form-control" required></div>
+        <div class="modal fade" id="itemModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form id="itemForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Item</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="itemCodeHidden">
+                            <div class="mb-3"><label for="itemCode" class="form-label small-muted">Code</label><input type="text" id="itemCode" class="form-control" required></div>
+                            <div class="mb-3"><label for="itemName" class="form-label small-muted">Name</label><input type="text" id="itemName" class="form-control" required></div>
+                            <div class="mb-3"><label for="itemPrice" class="form-label small-muted">Price</label><input type="number" id="itemPrice" class="form-control" min="0" step="0.01" required></div>
+                            <div class="mb-3"><label for="itemQty" class="form-label small-muted">Quantity</label><input id="itemQty" type="number" class="form-control" min="0" required></div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
+                    </form>
                 </div>
-                <div class="modal-footer"><button class="btn btn-primary" type="submit">Save</button></div>
-            </form>
-        </div></div></div>
+            </div>
+        </div>
     </section>
 
 <!--order-->
