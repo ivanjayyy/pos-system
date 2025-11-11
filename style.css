@@ -218,7 +218,8 @@ body{
 }
 
 .home-card {
-    margin: 0 5vw;
+    margin: 0 2vw;
+    color: var(--muted);
 }
 
 #customer-page {

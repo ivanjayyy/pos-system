@@ -1,4 +1,7 @@
 import initOrderForm from "./controller/order-controller.js";
+import {get_customers} from "./model/customer-model.js";
+import {get_items} from "./model/item-model.js";
+import {get_orders} from "./model/order-model.js";
 
 // login
 const USER = {username: "ivan", password: "123"};
@@ -9,6 +12,10 @@ $("#login-form").on("submit", e => {
         $("#login-page").hide();
         $("#main-app").fadeIn();
         $("#navbar-container").fadeIn();
+
+        $("#customer-count").text(get_customers().length);
+        $("#item-count").text(get_items().length);
+        $("#order-count").text(get_orders().length);
 
     } else {$("#login-error").fadeIn().delay(1500).fadeOut();}
 });
@@ -26,6 +33,10 @@ $(".home-btn").on("click", () => {
     $("#order-page").hide();
     $("#customer-page").hide();
     $("#home").fadeIn();
+
+    $("#customer-count").text(get_customers().length);
+    $("#item-count").text(get_items().length);
+    $("#order-count").text(get_orders().length);
 });
 
 // customer

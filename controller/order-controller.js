@@ -11,9 +11,9 @@ function initOrderForm() {
     let order_list = get_orders();
 
     $("#orderItemsBody").empty();
-    $("#grandTotal").text("0.00");
-    $("#orderId").val("ORD-" + (order_list.length + 1));
-    $("#orderDate").val(new Date().toLocaleDateString());
+    $("#grandTotal").text("Rs 0.00");
+    $("#orderId").text("ORD-" + (order_list.length + 1));
+    $("#orderDate").text(new Date().toLocaleDateString());
 
     renderCustomerDropdown();
     load_order_history();
@@ -119,6 +119,10 @@ function updateGrandTotal(){
 }
 
 
+/* Clear order form */
+$('#clearItemsBtn').on('click', function(){ initOrderForm(); });
+
+
 // ==================== Place Order =======================
 $("#placeOrderBtn").on("click",()=> {
     let item_list = get_items();
@@ -157,8 +161,8 @@ $("#placeOrderBtn").on("click",()=> {
     if(!valid) return;
 
     const order = {
-        id:$("#orderId").val(),
-        date:$("#orderDate").val(),
+        id:$("#orderId").text(),
+        date:$("#orderDate").text(),
         customerId:custId,
         custName:cust_list.find(c => c.id === custId).name,
         items:orderItems,

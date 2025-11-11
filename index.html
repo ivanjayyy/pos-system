@@ -75,24 +75,24 @@
                     </li>
                 </ul>
 
-                <button id="logout-btn" type="button" class="btn btn-ghost">Logout</button>
+                <button id="logout-btn" type="button" class="btn btn-danger">Logout</button>
             </div>
         </div>
     </nav>
 </header>
 
-<main id="main-app">
+<main id="main-app" style="margin: 0 1vw">
 
 <!--home-->
-    <section id="home" class="container-fluid p-5">
-        <div class="row row-cols-1 row-cols-md-3 g-5">
+    <section id="home" class="container-fluid p-1">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
 
             <div class="col">
-                <div class="card h-100 home-card">
+                <div class="card h-100 card-glass home-card">
                     <img src="assets/image/customers.jpg" class="card-img-top" alt="...">
 
                     <div class="card-body">
-                        <h5 class="card-title">Customer Page</h5>
+                        <h5 class="card-title" style="color: white">Customer Page</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
 
@@ -101,16 +101,17 @@
                             <span>check customers</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
+                        <p class="card-text m-2">Customer count : <span id="customer-count">0</span></p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 home-card">
+                <div class="card h-100 card-glass home-card">
 
                     <img src="assets/image/items.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Item Page</h5>
+                        <h5 class="card-title" style="color: white">Item Page</h5>
                         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                     </div>
 
@@ -119,16 +120,17 @@
                             <span>check items</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
+                        <p class="card-text m-2">Item count : <span id="item-count">0</span></p>
                     </div>
                 </div>
             </div>
 
             <div class="col">
-                <div class="card h-100 home-card">
+                <div class="card h-100 card-glass home-card">
                     <img src="assets/image/orders.jpg" class="card-img-top" alt="...">
 
                     <div class="card-body">
-                        <h5 class="card-title">Order Pagee</h5>
+                        <h5 class="card-title" style="color: white">Order Pagee</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                     </div>
 
@@ -137,6 +139,7 @@
                             <span>check orders</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
+                        <p class="card-text m-2">Order count : <span id="order-count">0</span></p>
                     </div>
                 </div>
             </div>
@@ -146,7 +149,7 @@
 
 <!--customers-->
     <section id="customer-page">
-        <div class="container-fluid p-5">
+        <div class="container-fluid p-1">
             <div class="card-glass">
                 <div id="customers-section" style="display:flex;justify-content:space-between;align-items:center">
                     <div>
@@ -160,7 +163,7 @@
 
                 <div class="table-responsive" style="margin-top:16px">
                     <table class="css-table">
-                        <thead><tr><th>ID</th><th>Name</th><th>Contact</th><th>Address</th><th>Actions</th></tr></thead>
+                        <thead><tr><th>ID</th><th>Name</th><th>Contact</th><th>Address</th><th></th></tr></thead>
                         <tbody id="customerTableBody"></tbody>
                     </table>
                 </div>
@@ -191,7 +194,7 @@
 
 <!--items-->
     <section id="item-page">
-        <div class="container-fluid p-5">
+        <div class="container-fluid p-1">
             <div class="card-glass">
                 <div id="item-section" style="display:flex;justify-content:space-between;align-items:center">
                     <div>
@@ -205,7 +208,7 @@
 
                 <div class="table-responsive" style="margin-top:16px">
                     <table class="css-table">
-                        <thead><tr><th>Code</th><th>Name</th><th>Unit Price</th><th>Qty on Hand</th><th>Actions</th></tr></thead>
+                        <thead><tr><th>Code</th><th>Name</th><th>Price</th><th>Qty</th><th></th></tr></thead>
                         <tbody id="itemTableBody"></tbody>
                     </table>
                 </div>
@@ -236,7 +239,7 @@
     </section>
 
 <!--order-->
-    <section id="order-page" class="container-fluid p-5">
+    <section id="order-page" class="container-fluid p-1">
         <div class="card-glass mt-4" id="orders-section">
             <div style="display:flex;justify-content:space-between;align-items:center">
                 <div>
@@ -245,31 +248,34 @@
                 </div>
             </div>
 
-            <div style="margin-top:16px">
-                <div style="display:grid;grid-template-columns:1fr 280px;gap:12px">
-                    <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)">
-                        <div class="mb-2 small-muted">Customer</div>
-                        <select id="orderCustomer" class="form-control"></select>
+            <div>
+                <div class="row g-3">
+                    <div class="col-12 col-md-8">
+                        <div style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)">
+                            <div class="mb-2 small-muted">Customer</div>
+                            <select id="orderCustomer" class="form-control"></select>
 
-                        <div class="mt-3 small-muted">Add items</div>
-                        <table style="margin-top:10px" class="css-table">
-                            <thead><tr><th>Item</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr></thead>
-                            <tbody id="orderItemsBody"></tbody>
-                        </table>
-                        <div style="margin-top:10px; display:flex; gap:10px;">
-                            <button id="addOrderItemBtn" class="btn btn-ghost">+ Add Item</button>
-                            <button id="clearItemsBtn" class="btn btn-ghost">Clear</button>
+                            <div class="mt-3 small-muted">Add items</div>
+                            <table style="margin-top:10px" class="css-table">
+                                <thead><tr><th>Item</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr></thead>
+                                <tbody id="orderItemsBody"></tbody>
+                            </table>
+                            <div style="margin-top:10px; display:flex; gap:10px;">
+                                <button id="addOrderItemBtn" class="btn btn-ghost">+ Add Item</button>
+                                <button id="clearItemsBtn" class="btn btn-ghost">Clear</button>
+                            </div>
                         </div>
                     </div>
-
-                    <div style="padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(18,24,40,0.6), rgba(10,12,20,0.5))">
-                        <div class="small-muted">Order Summary</div>
-                        <div style="margin-top:14px;display:flex;justify-content:space-between"><div class="muted">Order ID</div><div id="orderId" class="muted">-</div></div>
-                        <div style="margin-top:8px;display:flex;justify-content:space-between"><div class="muted">Date</div><div id="orderDate" class="muted">-</div></div>
-                        <hr style="border-top:1px solid rgba(255,255,255,0.04);margin:12px 0">
-                        <div style="display:flex;justify-content:space-between"><div class="small-muted">Grand Total</div><div style="font-weight:800;font-size:1.3rem" id="grandTotal">Rs0.00</div></div>
-                        <div style="margin-top:12px">
-                            <button id="placeOrderBtn" class="btn btn-primary w-100">Place Order</button>
+                    <div class="col-12 col-md-4">
+                        <div style="padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(18,24,40,0.6), rgba(10,12,20,0.5))">
+                            <div class="small-muted">Order Summary</div>
+                            <div style="margin-top:14px;display:flex;justify-content:space-between"><div class="muted">Order ID</div><div id="orderId" class="muted">-</div></div>
+                            <div style="margin-top:8px;display:flex;justify-content:space-between"><div class="muted">Date</div><div id="orderDate" class="muted">-</div></div>
+                            <hr style="border-top:1px solid rgba(255,255,255,0.04);margin:12px 0">
+                            <div style="display:flex;justify-content:space-between"><div class="small-muted">Grand Total</div><div style="font-weight:800;font-size:1.3rem" id="grandTotal">0.00</div></div>
+                            <div style="margin-top:12px">
+                                <button id="placeOrderBtn" class="btn btn-primary w-100">Place Order</button>
+                            </div>
                         </div>
                     </div>
                 </div>
