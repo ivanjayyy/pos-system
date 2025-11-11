@@ -7,8 +7,8 @@ $("#login-form").on("submit", e => {
     e.preventDefault();
     if ($("#username").val() === USER.username && $("#password").val() === USER.password) {
         $("#login-page").hide();
-        $("#main-app").show();
-        $("#navbar-container").show();
+        $("#main-app").fadeIn();
+        $("#navbar-container").fadeIn();
 
     } else {$("#login-error").fadeIn().delay(1500).fadeOut();}
 });

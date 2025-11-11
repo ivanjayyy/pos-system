@@ -14,8 +14,8 @@ const load_item_tbl = () => {
         <td>${obj.itemName}</td>
         <td>${obj.price.toFixed(2)}</td>
         <td>${obj.qty}</td>
-        <td><button class='btn btn-sm btn-warning edit-item' data-index='${index}'>Edit</button>
-        <button class='btn btn-sm btn-danger del-item' data-index='${index}'>Delete</button></td> </tr>`;
+        <td><button class='btn btn-sm btn-ghost edit-item' data-index='${index}'>Edit</button>
+        <button class='btn btn-sm btn-ghost del-item' data-index='${index}'>Delete</button></td> </tr>`;
 
         $("#itemTableBody").append(tbl_row);
     });

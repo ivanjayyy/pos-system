@@ -14,8 +14,8 @@ const load_customer_tbl = () => {
         <td>${obj.name}</td>
         <td>${obj.contact}</td>
         <td>${obj.address}</td>
-        <td><button class='btn btn-sm btn-warning edit-cust' data-index='${index}'>Edit</button>
-        <button class='btn btn-sm btn-danger del-cust' data-index='${index}'>Delete</button></td> </tr>`;
+        <td><button class='btn btn-sm btn-ghost edit-cust' data-index='${index}'>Edit</button>
+        <button class='btn btn-sm btn-ghost del-cust' data-index='${index}'>Delete</button></td> </tr>`;
 
         $("#customerTableBody").append(tbl_row);
     });
