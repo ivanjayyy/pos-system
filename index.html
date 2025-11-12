@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="ivan jay, pos, web developer, web designer, java, java script, html, css, figma, github, linkedin, instagram, facebook, twitter, software engineer, ijse, gdse, sivali,">
+    <meta name="description" content="I'm a passionate web developer and designer with a strong foundation in Java and JavaScript. I specialize in creating responsive and user-friendly websites and applications.">
+    <meta name="author" content="Ivan Jay">
+    <meta name="theme-color" content="#212121">
     <title>POS System</title>
+
+    <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/lib/normalize.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +45,7 @@
             </div>
 
             <div style="display:flex;gap:10px;align-items:center;margin-bottom: 10px">
-                <button class="btn btn-primary flex-grow-1" type="submit">Sign in</button>
+                <button class="btn btn-primary flex-grow-1 hovering" type="submit">Sign in</button>
             </div>
             <p id="login-error" class="small-muted" style="display:none;color:#ffb4b4">Invalid credentials</p>
         </form>
@@ -50,7 +56,7 @@
 <!--navbar-->
 <header class="p-5 container-fluid navbar-container" id="navbar-container">
     <nav class="navbar navbar-dark navbar-expand-lg">
-        <a class="navbar-brand home-btn pointer">POS System</a>
+        <a class="navbar-brand home-btn pointer hovering">POS System</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,17 +71,17 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link customer-btn pointer">Customer</a>
+                        <a class="nav-link customer-btn pointer hovering">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link item-btn pointer">Item</a>
+                        <a class="nav-link item-btn pointer hovering">Item</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link order-btn pointer">Order</a>
+                        <a class="nav-link order-btn pointer hovering">Order</a>
                     </li>
                 </ul>
 
-                <button id="logout-btn" type="button" class="btn btn-danger">Logout</button>
+                <button id="logout-btn" type="button" class="btn btn-danger hovering">Logout</button>
             </div>
         </div>
     </nav>
@@ -83,7 +89,7 @@
 
 <main id="main-app" style="margin: 0 1vw">
 
-<!--    search-->
+<!--search-->
     <div class="topbar" id="topbar">
         <div style="display:flex;align-items:center;gap:14px">
             <div>
@@ -95,11 +101,6 @@
                 <input id="globalSearch" placeholder="search..." />
             </div>
         </div>
-
-        <div style="display:flex;align-items:center;gap:10px">
-            <div class="small-muted">Balance</div>
-            <div style="font-weight:800;font-size:1.05rem"> Rs <span id="balanceTotal">0.00</span></div>
-        </div>
     </div>
 
 <!--home-->
@@ -107,16 +108,16 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5">
 
             <div class="col">
-                <div class="card h-100 card-glass home-card">
-                    <img src="assets/image/customers.jpg" class="card-img-top" alt="...">
+                <div class="card h-100 card-glass home-card hovering">
+                    <img src="assets/image/customers.jpg" class="card-img-top" alt="..." loading="lazy">
 
                     <div class="card-body">
                         <h5 class="card-title" style="color: white">Customer Page</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Manage customer information efficiently. Add, update, or remove customers and keep track of your customer base with ease.</p>
                     </div>
 
                     <div class="card-footer">
-                        <button id="customer-btn" type="button" class="btn btn-primary customer-btn">
+                        <button id="customer-btn" type="button" class="btn btn-primary customer-btn hovering">
                             <span>check customers</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -126,16 +127,16 @@
             </div>
 
             <div class="col">
-                <div class="card h-100 card-glass home-card">
+                <div class="card h-100 card-glass home-card hovering">
 
-                    <img src="assets/image/items.jpg" class="card-img-top" alt="...">
+                    <img src="assets/image/items.jpg" class="card-img-top" alt="..." loading="lazy">
                     <div class="card-body">
                         <h5 class="card-title" style="color: white">Item Page</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">View and maintain your product inventory. Add new items, update stock levels, and organize your product details for smooth transactions.</p>
                     </div>
 
                     <div class="card-footer">
-                        <button id="item-btn" type="button" class="btn btn-primary item-btn">
+                        <button id="item-btn" type="button" class="btn btn-primary item-btn hovering">
                             <span>check items</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -145,16 +146,16 @@
             </div>
 
             <div class="col">
-                <div class="card h-100 card-glass home-card">
-                    <img src="assets/image/orders.jpg" class="card-img-top" alt="...">
+                <div class="card h-100 card-glass home-card hovering">
+                    <img src="assets/image/orders.jpg" class="card-img-top" alt="..." loading="lazy">
 
                     <div class="card-body">
                         <h5 class="card-title" style="color: white">Order Pagee</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text">Create and manage orders quickly. View order history, generate invoices, and keep your sales records accurate and up to date.</p>
                     </div>
 
                     <div class="card-footer">
-                        <button id="order-btn" type="button" class="btn btn-primary order-btn">
+                        <button id="order-btn" type="button" class="btn btn-primary order-btn hovering">
                             <span>check orders</span>
                             <i class="fa-solid fa-right-to-bracket"></i>
                         </button>
@@ -176,7 +177,7 @@
                         <div class="small-muted">Add, edit, and manage your customers</div>
                     </div>
                     <div>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customerModal" id="addCustomerBtn">+ Add Customer</button>
+                        <button class="btn btn-primary hovering" data-bs-toggle="modal" data-bs-target="#customerModal" id="addCustomerBtn">+ Add Customer</button>
                     </div>
                 </div>
 
@@ -221,7 +222,7 @@
                         <div class="small-muted">Inventory management</div>
                     </div>
                     <div>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal" id="addItemBtn">+ Add Item</button>
+                        <button class="btn btn-primary hovering" data-bs-toggle="modal" data-bs-target="#itemModal" id="addItemBtn">+ Add Item</button>
                     </div>
                 </div>
 
@@ -280,8 +281,8 @@
                                 <tbody id="orderItemsBody"></tbody>
                             </table>
                             <div style="margin-top:10px; display:flex; gap:10px;">
-                                <button id="addOrderItemBtn" class="btn btn-ghost">+ Add Item</button>
-                                <button id="clearItemsBtn" class="btn btn-ghost">Clear</button>
+                                <button id="addOrderItemBtn" class="btn btn-ghost hovering">+ Add Item</button>
+                                <button id="clearItemsBtn" class="btn btn-ghost hovering">Clear</button>
                             </div>
                         </div>
                     </div>
@@ -293,7 +294,7 @@
                             <hr style="border-top:1px solid rgba(255,255,255,0.04);margin:12px 0">
                             <div style="display:flex;justify-content:space-between"><div class="section-title">Grand Total</div><div style="font-weight:800;font-size:1.3rem" id="grandTotal">0.00</div></div>
                             <div style="margin-top:12px">
-                                <button id="placeOrderBtn" class="btn btn-primary w-100">Place Order</button>
+                                <button id="placeOrderBtn" class="btn btn-primary w-100 hovering">Place Order</button>
                             </div>
                         </div>
                     </div>
