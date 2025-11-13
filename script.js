@@ -3,6 +3,13 @@ import {get_customers} from "./model/customer-model.js";
 import {get_items} from "./model/item-model.js";
 import {get_orders} from "./model/order-model.js";
 
+// loading screen
+const loadingScreen = document.getElementById('pre-loader');
+
+window.addEventListener('load', function () {
+    loadingScreen.style.display = 'none';
+})
+
 // login
 const USER = {username: "ivan", password: "123"};
 
